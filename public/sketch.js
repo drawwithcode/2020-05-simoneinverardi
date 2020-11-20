@@ -16,7 +16,7 @@ function newConnection (){
 
 function drawOtherMouse(data){
   push();
-  fill(255,0,0);
+  fill(data.color);
   noStroke();
   ellipse(data.x,data.y,10);
   pop();
@@ -46,6 +46,7 @@ function mouseMoved() {
   let message = {
     x: mouseX,
     y: mouseY,
+    color: myColor,
   };
   //send to the server
   socket.emit("mouse", message);
