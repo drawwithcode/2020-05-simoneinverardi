@@ -19,6 +19,10 @@ io.on("connection", newConnection);
 function newConnection(socket){
   console.log("newConnection: " + socket.client.id);
 
+  let clientColor = getRandomColor();
+
+  socket.emit("color", clientColor);
+
 socket.on("mouse", mouseMessage);
 
 function mouseMessage(dataReceived) {
