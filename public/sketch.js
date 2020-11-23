@@ -1,5 +1,5 @@
 let socket = io();
-let myColor = "white";
+let myColor = #DC143C;
 
 socket.on("connect", newConnection);
 socket.on("mouseBroadcast", drawOtherMouse);
@@ -10,7 +10,7 @@ function newPlayer(newPlayerColor) {
   console.log(newPlayerColor);
   push();
   noStroke();
-  fill("purple");
+  fill(255);
   rectMode(CENTER);
   rect(width / 2, height / 2, 400, 40);
   textSize(30);
@@ -46,7 +46,7 @@ function setup() {
   createCanvas(windowWidth,windowHeight)
   // put setup code here
   push();
-  background("purple");
+  background(255);
   textSize(30);
   textAlign(CENTER,CENTER);
   fill(myColor);
