@@ -20,10 +20,10 @@ function newPlayer(newPlayerColor) {
   pop();
 }
 
-function setColor(assignedColor) {
-  myColor = assignedColor;
-
-}
+// function setColor(assignedColor) {
+//   myColor = assignedColor;
+//
+// }
 
 function newConnection (){
   console.log("your id: " + socket.id);
@@ -50,7 +50,7 @@ function setup() {
   textSize(30);
   textAlign(CENTER,CENTER);
   fill(myColor);
-  text("welcome" + myColor, width/2, height/2);
+  text("welcome " + myColor, width/2, height/2);
   pop();
 }
 
