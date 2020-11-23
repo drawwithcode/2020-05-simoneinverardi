@@ -34,7 +34,7 @@ function mouseMessage(dataReceived) {
 }
 
 function getRandomColor() {
-  let myColors = ["Crimson", "CornflowerBlue", "Coral", "Cyan"]
+  let myColors = ["Crimson", "CornflowerBlue", "Coral", "Cyan"];
   // let letters = "0123456789ABCDEF";
   // let color = "#";
   for ( let i = 0; i < 6; i++) {
