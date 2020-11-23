@@ -20,10 +20,10 @@ function newPlayer(newPlayerColor) {
   pop();
 }
 
-// function setColor(assignedColor) {
-//   myColor = assignedColor;
-//
-// }
+function setColor(assignedColor) {
+  myColor = assignedColor;
+
+}
 
 function newConnection (){
   console.log("your id: " + socket.id);
