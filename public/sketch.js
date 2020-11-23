@@ -1,5 +1,5 @@
 let socket = io();
-let myColor = #DC143C;
+let myColor = "Crimson";
 
 socket.on("connect", newConnection);
 socket.on("mouseBroadcast", drawOtherMouse);
