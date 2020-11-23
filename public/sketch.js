@@ -46,7 +46,7 @@ function setup() {
   createCanvas(windowWidth,windowHeight)
   // put setup code here
   push();
-  background(255);
+
   textSize(30);
   textAlign(CENTER,CENTER);
   fill(myColor);
@@ -55,6 +55,7 @@ function setup() {
 }
 
 function draw() {
+    background(255, 255, 255, 10);
   // put drawing code here
 }
 
