@@ -33,13 +33,32 @@ function newConnection (){
   console.log("your id: " + socket.id);
 }
 
+
+function mouseMoved() {
+  push();
+  noStroke();
+  fill(myColor);
+  ellipse(mouseX, mouseY, 20);
+  pop();
+  let message = {
+    x: mouseX,
+    y: mouseY,
+    color: myColor,
+  };
+  //send to the server
+  socket.emit("mouse", message);
+
+}
+
 function drawOtherMouse(data){
+  beginShape();
   push();
   fill(data.color);
   noStroke();
   ellipse(data.x,data.y,10);
   pop();
-
+  vertex(data.x, data.y);
+  endShape(OPEN);
 }
 
 function preload(){
@@ -60,21 +79,5 @@ function setup() {
 
 function draw() {
     background(255, 255, 255, 5);
-
-}
-
-function mouseMoved() {
-  push();
-  noStroke();
-  fill(myColor);
-  ellipse(mouseX, mouseY, 20);
-  pop();
-  let message = {
-    x: mouseX,
-    y: mouseY,
-    color: myColor,
-  };
-  //send to the server
-  socket.emit("mouse", message);
 
 }
