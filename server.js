@@ -35,7 +35,9 @@ function mouseMessage(dataReceived) {
 
 function getRandomColor() {
   let listOfColors = [color('#aabf12'), color('#33ab12'), color('#165512'), color('#fe3fa2'), color('#a345cd')];
+  for ( let i = 0; i < 6; i++) {
   let color = listOfColors[int(random(0, listOfColors.length))];
+}
   // let letters = "0123456789ABCDEF";
   // let color = "#";
   // for ( let i = 0; i < 6; i++) {
