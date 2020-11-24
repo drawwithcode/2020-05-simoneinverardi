@@ -61,6 +61,7 @@ function setup() {
   // put setup code here
   push();
   noStroke();
+  specularMaterial(50,50,50,10)
   translate(0,0,-500)
   sphere(500);
   // translate(0,0,-110);
