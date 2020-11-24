@@ -1,27 +1,24 @@
 let socket = io();
-let myColor = "Crimson";
+let myColor = "white";
 
 socket.on("connect", newConnection);
 socket.on("mouseBroadcast", drawOtherMouse);
 socket.on("color", setColor);
 socket.on("newPlayer", newPlayer);
 
-// function newPlayer(newPlayerColor) {
-//   console.log(newPlayerColor);
-//   let randomPositionX = random(windowWidth);
-//   let randomPositionY = random(windowHeight);
-//
-//   push();
-//   noStroke();
-//   fill(255);
-//   // rectMode(CENTER);
-//   // rect(100, 100, 400, 40);
-//   // textSize(30);
-//   fill(newPlayerColor);
-//   // textAlign(CENTER,CENTER);
-//   // text("New player joined: " + newPlayerColor,randomPositionX, randomPositionY);
-//   pop();
-// }
+function newPlayer(newPlayerColor) {
+  console.log(newPlayerColor);
+  push();
+  noStroke();
+  fill("purple");
+  rectMode(CENTER);
+  rect(width / 2, height / 2, 400, 40);
+  textSize(30);
+  fill(newPlayerColor);
+  textAlign(CENTER,CENTER);
+  text("New player joined: " + newPlayerColor, width / 2, height / 2);
+  pop();
+}
 
 function setColor(assignedColor) {
   myColor = assignedColor;
@@ -33,15 +30,10 @@ function newConnection (){
 }
 
 function drawOtherMouse(data){
-
   push();
   fill(data.color);
   noStroke();
-  // ellipse(data.x,data.y,10);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  translate(data.x, data.y, data.z);
-  box(50);
+  ellipse(data.x,data.y,10);
   pop();
 
 }
@@ -51,31 +43,26 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(windowWidth,windowHeight, WEBGL);
+  createCanvas(windowWidth,windowHeight)
   // put setup code here
-  // push();
-
-  // textSize(30);
-  // textAlign(CENTER,CENTER);
-  // fill(myColor);
-  // text("welcome " + myColor, width/2, height/2);
-  // pop();
+  push();
+  background("purple");
+  textSize(30);
+  textAlign(CENTER,CENTER);
+  fill(myColor);
+  text("welcome" + myColor, width/2, height/2);
+  pop();
 }
 
 function draw() {
-    background(255, 255, 255, 5);
-
+  // put drawing code here
 }
 
-function mouseClicked() {
+function mouseMoved() {
   push();
-  translate(mouseX, mouseY);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  box(50);
   noStroke();
   fill(myColor);
-  // ellipse(mouseX, mouseY, 20);
+  ellipse(mouseX, mouseY, 20);
   pop();
   let message = {
     x: mouseX,
