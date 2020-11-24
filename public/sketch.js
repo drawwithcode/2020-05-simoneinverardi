@@ -12,11 +12,10 @@ function newPlayer(newPlayerColor) {
   let randomPositionY = random(windowHeight);
 
   push();
-
   noStroke();
   fill(255);
-  // rectMode(CENTER);
-  // rect(randomPositionX, randomPositionY, 400, 40);
+  rectMode(CENTER);
+  rect(100, 100, 400, 40);
   textSize(30);
   fill(newPlayerColor);
   textAlign(CENTER,CENTER);
@@ -33,32 +32,18 @@ function newConnection (){
   console.log("your id: " + socket.id);
 }
 
-
-function mouseClicked() {
-  push();
-  noStroke();
-  fill(myColor);
-  ellipse(mouseX, mouseY, 20);
-  pop();
-  let message = {
-    x: mouseX,
-    y: mouseY,
-    color: myColor,
-  };
-  //send to the server
-  socket.emit("mouse", message);
-
-}
-
 function drawOtherMouse(data){
+
   push();
-  beginShape(TRIANGLES);
   fill(data.color);
-  // noStroke();
+  noStroke();
   // ellipse(data.x,data.y,10);
-  vertex(data.x, data.y);
-  endShape(OPEN);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  translate(data.x, data.y,data.z);
+  box(50);
   pop();
+
 }
 
 function preload(){
@@ -66,18 +51,39 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(windowWidth,windowHeight)
+  createCanvas(windowWidth,windowHeight, WEBGL)
   // put setup code here
-  push();
+  // push();
 
-  textSize(30);
-  textAlign(CENTER,CENTER);
-  fill(myColor);
-  text("welcome " + myColor, width/2, height/2);
-  pop();
+  // textSize(30);
+  // textAlign(CENTER,CENTER);
+  // fill(myColor);
+  // text("welcome " + myColor, width/2, height/2);
+  // pop();
 }
 
 function draw() {
     background(255, 255, 255, 5);
+
+}
+
+function mouseClicked() {
+  push();
+  translate(mouseX, mouseY,mouseZ);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  box(50);
+  noStroke();
+  fill(myColor);
+  // ellipse(mouseX, mouseY, 20);
+  pop();
+  let message = {
+    x: mouseX,
+    y: mouseY,
+    z: mouseZ,
+    color: myColor,
+  };
+  //send to the server
+  socket.emit("mouse", message);
 
 }
