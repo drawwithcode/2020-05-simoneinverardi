@@ -8,16 +8,16 @@ socket.on("newPlayer", newPlayer);
 
 function newPlayer(newPlayerColor) {
   console.log(newPlayerColor);
-  push();
-  noStroke();
-  fill("purple");
-  rectMode(CENTER);
-  rect(width / 2, height / 2, 400, 40);
-  textSize(30);
-  fill(newPlayerColor);
-  textAlign(CENTER,CENTER);
-  text("New player joined: " + newPlayerColor, width / 2, height / 2);
-  pop();
+  // push();
+  // noStroke();
+  // // fill("purple");
+  // rectMode(CENTER);
+  // rect(width / 2, height / 2, 400, 40);
+  // textSize(30);
+  // fill(newPlayerColor);
+  // textAlign(CENTER,CENTER);
+  // text("New player joined: " + newPlayerColor, width / 2, height / 2);
+  // pop();
 }
 
 function setColor(assignedColor) {
@@ -31,9 +31,9 @@ function newConnection (){
 
 function drawOtherMouse(data){
   push();
-  let locX = data.x - width / 2;
-  let locY = data.y - height / 2;
-  pointLight(0, 0, 250, locX, locY, 0);
+  // let locX = data.x - width / 2;
+  // let locY = data.y - height / 2;
+  pointLight(0, 0, 250, data.x, data.y, 0);
   noStroke();
   // fill(data.color);
   // noStroke();
@@ -53,6 +53,7 @@ function setup() {
   push();
   translate(0,0,-110);
   noStroke();
+  fill(50);
   sphere(100);
   // background("purple");
   // textSize(30);
@@ -70,6 +71,9 @@ function mouseMoved() {
   push();
   let locX = mouseX - width / 2;
   let locY = mouseY - height / 2;
+  // myBlue = 250;
+  // myGreen =
+  // myRed =
   pointLight(250, 0, 0, locX, locY, 0);
   noStroke();
 
@@ -78,9 +82,11 @@ function mouseMoved() {
   // ellipse(mouseX, mouseY, 20);
   pop();
   let message = {
-    x: mouseX,
-    y: mouseY,
-    color: myColor,
+    x: locX,
+    y: locY,
+    // red: myRed,
+    // green: myGreen,
+    // blue: myBlue,
   };
   //send to the server
   socket.emit("mouse", message);
