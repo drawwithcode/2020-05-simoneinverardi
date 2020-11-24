@@ -8,15 +8,19 @@ socket.on("newPlayer", newPlayer);
 
 function newPlayer(newPlayerColor) {
   console.log(newPlayerColor);
+  let randomPositionX = random(windowWidth);
+  let randomPositionY = random(windowHeight);
+
   push();
+
   noStroke();
   fill(255);
-  rectMode(CENTER);
-  rect(100, 100, 400, 40);
+  // rectMode(CENTER);
+  // rect(randomPositionX, randomPositionY, 400, 40);
   textSize(30);
   fill(newPlayerColor);
   textAlign(CENTER,CENTER);
-  text("New player joined: " + newPlayerColor, width / 2, height / 2);
+  text("New player joined: " + newPlayerColor,randomPositionX, randomPositionY);
   pop();
 }
 
