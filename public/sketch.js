@@ -6,6 +6,9 @@ socket.on("mouseBroadcast", drawOtherMouse);
 socket.on("color", setColor);
 socket.on("newPlayer", newPlayer);
 
+let locX = mouseX - width / 2;
+let locY = mouseY - height / 2;
+
 function newPlayer(newPlayerColor) {
   console.log(newPlayerColor);
   // push();
@@ -32,8 +35,8 @@ function newConnection (){
 function drawOtherMouse(data){
   push();
   //move your mouse to change light position
-  let locX = data.x - width / 2;
-  let locY = data.y - height / 2;
+  // let locX = mouseX - width / 2;
+  // let locY = mouseY - height / 2;
   // to set the light position,
   // think of the world's coordinate as:
   // -width/2,-height/2 -------- width/2,-height/2
@@ -41,7 +44,7 @@ function drawOtherMouse(data){
   //                |     0,0    |
   //                |            |
   // -width/2,height/2--------width/2,height/2
-  pointLight(0, 0, 250, locX, locY, 50);
+  pointLight(0, 0, 250, data.x, data.y, 50);
   noStroke();
   translate(0,0,-500)
   sphere(500);
@@ -75,8 +78,6 @@ function draw() {
 function mouseMoved() {
   push();
   //move your mouse to change light position
-  let locX = mouseX - width / 2;
-  let locY = mouseY - height / 2;
   // to set the light position,
   // think of the world's coordinate as:
   // -width/2,-height/2 -------- width/2,-height/2
@@ -90,8 +91,8 @@ function mouseMoved() {
   sphere(500);
   pop();
   let message = {
-    x: mouseX,
-    y: mouseY,
+    x: locX,
+    y: locY,
     // red: myRed,
     // green: myGreen,
     // blue: myBlue,
