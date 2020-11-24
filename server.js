@@ -35,7 +35,7 @@ function mouseMessage(dataReceived) {
 
 function getRandomColor() {
   let myColors = ["Coral", "Crimson", "CornflowerBlue"];
-  color = Math.random(myColors.length);
+  color = Math.floor[Math.random(int(myColors.length))];
 
   // let letters = "0123456789ABCDEF";
   // let color = "#";
