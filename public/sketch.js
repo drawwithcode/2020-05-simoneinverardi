@@ -52,12 +52,10 @@ function mouseMoved() {
 
 function drawOtherMouse(data){
   push();
-  beginShape();
-
+  beginShape(TRIANGLES);
   fill(data.color);
   // noStroke();
-  ellipse(data.x,data.y,10);
-
+  // ellipse(data.x,data.y,10);
   vertex(data.x, data.y);
   endShape(OPEN);
   pop();
