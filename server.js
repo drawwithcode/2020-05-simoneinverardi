@@ -34,13 +34,13 @@ function mouseMessage(dataReceived) {
 }
 
 function getRandomColor() {
-  let myColors = ["#4f5bdb", "#66cdaa", "#00a4b2"];
-  color = Math.random(myColors.length);
+  // let myColors = ["#4f5bdb", "#66cdaa", "#00a4b2"];
+  // color = random(myColors.length);
 
-  // let letters = "0123456789ABCDEF";
-  // let color = "#";
-  // for ( let i = 0; i < 6; i++) {
-  // color += letters[Math.floor(Math.random() * 16)];
+  let letters = "0123456789ABCDEF";
+  let color = "#";
+  for ( let i = 0; i < 6; i++) {
+  color += letters[Math.floor(Math.random() * 16)];
 }
 return color;
 }
