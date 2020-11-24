@@ -60,10 +60,7 @@ function setup() {
   background(255);
   // put setup code here
   push();
-  noStroke();
-  specularMaterial(50,50,50,10)
-  translate(0,0,-500)
-  sphere(500);
+
   // translate(0,0,-110);
 
   // background("purple");
@@ -91,7 +88,9 @@ function mouseMoved() {
   //                |            |
   // -width/2,height/2--------width/2,height/2
   pointLight(250, 0, 0, locX, locY, 50);
-
+  noStroke();
+  translate(0,0,-500)
+  sphere(500);
   pop();
   let message = {
     x: locX,
