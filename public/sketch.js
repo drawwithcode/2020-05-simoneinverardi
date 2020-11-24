@@ -40,7 +40,7 @@ function drawOtherMouse(data){
   // ellipse(data.x,data.y,10);
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
-  translate(data.x, data.y,data.z);
+  translate(data.x, data.y, data.z);
   box(50);
   pop();
 
@@ -51,7 +51,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(windowWidth,windowHeight, WEBGL)
+  createCanvas(windowWidth,windowHeight, WEBGL);
   // put setup code here
   // push();
 
@@ -69,7 +69,7 @@ function draw() {
 
 function mouseClicked() {
   push();
-  translate(mouseX, mouseY,mouseZ);
+  translate(mouseX, mouseY, mouseZ);
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
   box(50);
