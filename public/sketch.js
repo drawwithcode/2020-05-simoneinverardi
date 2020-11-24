@@ -31,13 +31,20 @@ function newConnection (){
 
 function drawOtherMouse(data){
   push();
-  // let locX = data.x - width / 2;
-  // let locY = data.y - height / 2;
-  pointLight(0, 0, 250, data.x, data.y, 0);
+  //move your mouse to change light position
+  let locX = mouseX - width / 2;
+  let locY = mouseY - height / 2;
+  // to set the light position,
+  // think of the world's coordinate as:
+  // -width/2,-height/2 -------- width/2,-height/2
+  //                |            |
+  //                |     0,0    |
+  //                |            |
+  // -width/2,height/2--------width/2,height/2
+  pointLight(0, 0, 250, locX, locY, 50);
   noStroke();
-  // fill(data.color);
-  // noStroke();
-  // ellipse(data.x,data.y,10);
+  translate(0,0,-500)
+  sphere(500);
   pop();
 
 }
@@ -51,10 +58,8 @@ function setup() {
   background(255);
   // put setup code here
   push();
-  translate(0,0,-110);
-  noStroke();
-  fill(50);
-  sphere(100);
+  // translate(0,0,-110);
+
   // background("purple");
   // textSize(30);
   // textAlign(CENTER,CENTER);
@@ -69,17 +74,20 @@ function draw() {
 
 function mouseMoved() {
   push();
+  //move your mouse to change light position
   let locX = mouseX - width / 2;
   let locY = mouseY - height / 2;
-  // myBlue = 250;
-  // myGreen =
-  // myRed =
-  pointLight(250, 0, 0, locX, locY, 0);
+  // to set the light position,
+  // think of the world's coordinate as:
+  // -width/2,-height/2 -------- width/2,-height/2
+  //                |            |
+  //                |     0,0    |
+  //                |            |
+  // -width/2,height/2--------width/2,height/2
+  pointLight(250, 0, 0, locX, locY, 50);
   noStroke();
-
-  // noStroke();
-  // fill(myColor);
-  // ellipse(mouseX, mouseY, 20);
+  translate(0,0,-500)
+  sphere(500);
   pop();
   let message = {
     x: locX,
