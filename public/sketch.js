@@ -1,5 +1,5 @@
 let socket = io();
-let myColor = "white";
+// let myColor = "white";
 
 socket.on("connect", newConnection);
 socket.on("mouseBroadcast", drawOtherMouse);
@@ -32,26 +32,16 @@ function newConnection (){
 }
 
 function drawOtherMouse(data){
-  // push();
-  //move your mouse to change light position
-  // let locX = mouseX - width / 2;
-  // let locY = mouseY - height / 2;
-  // to set the light position,
-  // think of the world's coordinate as:
-  // -width/2,-height/2 -------- width/2,-height/2
-  //                |            |
-  //                |     0,0    |
-  //                |            |
-  // -width/2,height/2--------width/2,height/2
-  pointLight(0, 0, 250, data.x, data.y, 50);
-  // noStroke();
-  // translate(random(-width, width),random(-height, height),-500);
-  // pop();
-  // noStroke();
-  // translate(0,0,-500);
-  // specularMaterial(150);
-  // fill(255);
-  // sphere(500);
+  push();
+  noStroke();
+  specularMaterial(250, 250, 250, 80);
+  translate(data.x, data.y, -1000);
+  rotateX(data.rot);
+  rotateY(data.rot);
+  rotateZ(data.rot);
+  ellipsoid(30, 8, 8);
+
+  pop();
 }
 
 function preload(){
@@ -61,48 +51,38 @@ function preload(){
 function setup() {
   createCanvas(windowWidth,windowHeight, WEBGL)
   background(255);
-  // put setup code here
-  push();
 
-  // translate(0,0,-110);
-
-  // background("purple");
-  // textSize(30);
-  // textAlign(CENTER,CENTER);
-  // fill(myColor);
-  // text("welcome" + myColor, width/2, height/2);
-  pop();
 }
 
 function draw() {
   // put drawing code here
+    pointLight(200, 50, 0, -width/2, 0, 0);
+    // pointLight(0, 50, 200, -width/4, 0, 0);
+    pointLight(0, 50, 200, width/2, 0, 0);
 }
 
 function mouseMoved() {
-  // push();
+  push();
+  // background(255,10);
   let locX = mouseX - width / 2;
   let locY = mouseY - height / 2;
-  //move your mouse to change light position
-  // to set the light position,
-  // think of the world's coordinate as:
-  // -width/2,-height/2 -------- width/2,-height/2
-  //                |            |
-  //                |     0,0    |
-  //                |            |
-  // -width/2,height/2--------width/2,height/2
-  pointLight(250, 0, 0, locX, locY, 50);
+  let locRot = frameCount*0.1;
+
   noStroke();
-  translate(0,0,-500);
-  specularMaterial(150);
-  fill(255);
-  sphere(500);
-  // pop();
+  specularMaterial(250, 250, 250, 50);
+  translate(locX, locY, -1000);
+  rotateX(locRot);
+  rotateY(locRot);
+  rotateZ(locRot);
+  // ambientMaterial(250);
+  // fill(255);
+  ellipsoid(150, 40, 40);
+
+  pop();
   let message = {
     x: locX,
     y: locY,
-    // red: myRed,
-    // green: myGreen,
-    // blue: myBlue,
+    rot: locRot,
   };
   //send to the server
   socket.emit("mouse", message);
