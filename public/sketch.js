@@ -34,7 +34,7 @@ function newConnection (){
 }
 
 
-function mouseMoved() {
+function mouseClicked() {
   push();
   noStroke();
   fill(myColor);
