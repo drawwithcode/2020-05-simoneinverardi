@@ -32,7 +32,7 @@ function newConnection (){
 }
 
 function drawOtherMouse(data){
-  push();
+  // push();
   //move your mouse to change light position
   // let locX = mouseX - width / 2;
   // let locY = mouseY - height / 2;
@@ -44,12 +44,14 @@ function drawOtherMouse(data){
   //                |            |
   // -width/2,height/2--------width/2,height/2
   pointLight(0, 0, 250, data.x, data.y, 50);
-  noStroke();
-  translate(random(-width, width),random(-height, height),-500);
-  
-  sphere(500);
-  pop();
-
+  // noStroke();
+  // translate(random(-width, width),random(-height, height),-500);
+  // pop();
+  // noStroke();
+  // translate(0,0,-500);
+  // specularMaterial(150);
+  // fill(255);
+  // sphere(500);
 }
 
 function preload(){
@@ -77,7 +79,7 @@ function draw() {
 }
 
 function mouseMoved() {
-  push();
+  // push();
   let locX = mouseX - width / 2;
   let locY = mouseY - height / 2;
   //move your mouse to change light position
@@ -90,11 +92,11 @@ function mouseMoved() {
   // -width/2,height/2--------width/2,height/2
   pointLight(250, 0, 0, locX, locY, 50);
   noStroke();
-  translate(random(-width, width),random(-height, height),-500);
-  // specularMaterial(150);
+  translate(0,0,-500);
+  specularMaterial(150);
   fill(255);
   sphere(500);
-  pop();
+  // pop();
   let message = {
     x: locX,
     y: locY,
