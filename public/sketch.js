@@ -54,7 +54,7 @@ function drawOtherMouse(data){
   beginShape();
   push();
   fill(data.color);
-  noStroke();
+  // noStroke();
   ellipse(data.x,data.y,10);
   pop();
   vertex(data.x, data.y);
