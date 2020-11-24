@@ -69,7 +69,7 @@ function draw() {
 
 function mouseClicked() {
   push();
-  translate(mouseX, mouseY, mouseZ);
+  translate(mouseX, mouseY);
   rotateX(frameCount * 0.01);
   rotateY(frameCount * 0.01);
   box(50);
@@ -80,7 +80,6 @@ function mouseClicked() {
   let message = {
     x: mouseX,
     y: mouseY,
-    z: mouseZ,
     color: myColor,
   };
   //send to the server
