@@ -45,8 +45,8 @@ function drawOtherMouse(data){
   // -width/2,height/2--------width/2,height/2
   pointLight(0, 0, 250, data.x, data.y, 50);
   noStroke();
-  translate(0,0,-500);
-  specularMaterial(150);
+  translate(random(-width, width),random(-height, height),-500);
+  
   sphere(500);
   pop();
 
@@ -90,8 +90,9 @@ function mouseMoved() {
   // -width/2,height/2--------width/2,height/2
   pointLight(250, 0, 0, locX, locY, 50);
   noStroke();
-  translate(0,0,-500);
-  specularMaterial(150);
+  translate(random(-width, width),random(-height, height),-500);
+  // specularMaterial(150);
+  fill(255);
   sphere(500);
   pop();
   let message = {
