@@ -31,9 +31,13 @@ function newConnection (){
 
 function drawOtherMouse(data){
   push();
-  fill(data.color);
+  let locX = data.x - width / 2;
+  let locY = data.y - height / 2;
+  pointLight(0, 0, 250, locX, locY, 0);
   noStroke();
-  ellipse(data.x,data.y,10);
+  // fill(data.color);
+  // noStroke();
+  // ellipse(data.x,data.y,10);
   pop();
 
 }
@@ -43,14 +47,18 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(windowWidth,windowHeight)
+  createCanvas(windowWidth,windowHeight, WEBGL)
+  background(255);
   // put setup code here
   push();
-  background("purple");
-  textSize(30);
-  textAlign(CENTER,CENTER);
-  fill(myColor);
-  text("welcome" + myColor, width/2, height/2);
+  translate(0,0,-110);
+  noStroke();
+  sphere(100);
+  // background("purple");
+  // textSize(30);
+  // textAlign(CENTER,CENTER);
+  // fill(myColor);
+  // text("welcome" + myColor, width/2, height/2);
   pop();
 }
 
@@ -60,9 +68,14 @@ function draw() {
 
 function mouseMoved() {
   push();
+  let locX = mouseX - width / 2;
+  let locY = mouseY - height / 2;
+  pointLight(250, 0, 0, locX, locY, 0);
   noStroke();
-  fill(myColor);
-  ellipse(mouseX, mouseY, 20);
+
+  // noStroke();
+  // fill(myColor);
+  // ellipse(mouseX, mouseY, 20);
   pop();
   let message = {
     x: mouseX,
