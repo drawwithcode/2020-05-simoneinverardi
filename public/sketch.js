@@ -51,14 +51,16 @@ function mouseMoved() {
 }
 
 function drawOtherMouse(data){
-  beginShape();
   push();
+  beginShape();
+
   fill(data.color);
   // noStroke();
   ellipse(data.x,data.y,10);
-  pop();
+
   vertex(data.x, data.y);
   endShape(OPEN);
+  pop();
 }
 
 function preload(){
