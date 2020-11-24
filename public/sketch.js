@@ -6,22 +6,22 @@ socket.on("mouseBroadcast", drawOtherMouse);
 socket.on("color", setColor);
 socket.on("newPlayer", newPlayer);
 
-function newPlayer(newPlayerColor) {
-  console.log(newPlayerColor);
-  let randomPositionX = random(windowWidth);
-  let randomPositionY = random(windowHeight);
-
-  push();
-  noStroke();
-  fill(255);
-  rectMode(CENTER);
-  rect(100, 100, 400, 40);
-  textSize(30);
-  fill(newPlayerColor);
-  textAlign(CENTER,CENTER);
-  text("New player joined: " + newPlayerColor,randomPositionX, randomPositionY);
-  pop();
-}
+// function newPlayer(newPlayerColor) {
+//   console.log(newPlayerColor);
+//   let randomPositionX = random(windowWidth);
+//   let randomPositionY = random(windowHeight);
+//
+//   push();
+//   noStroke();
+//   fill(255);
+//   // rectMode(CENTER);
+//   // rect(100, 100, 400, 40);
+//   // textSize(30);
+//   fill(newPlayerColor);
+//   // textAlign(CENTER,CENTER);
+//   // text("New player joined: " + newPlayerColor,randomPositionX, randomPositionY);
+//   pop();
+// }
 
 function setColor(assignedColor) {
   myColor = assignedColor;
