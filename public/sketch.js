@@ -6,7 +6,11 @@ socket.on("mouseBroadcast", drawOtherMouse);
 socket.on("color", setColor);
 socket.on("newPlayer", newPlayer);
 
+let slider;
 
+let slider1;
+let slider2;
+let slider3;
 
 function newPlayer(newPlayerColor) {
   console.log(newPlayerColor);
@@ -52,6 +56,20 @@ function setup() {
   createCanvas(windowWidth,windowHeight, WEBGL)
   background(255);
 
+  slider = createSlider(50, 200, 50);
+  slider.position(10, 10);
+  slider.style('width', '80px');
+
+  slider1 = createSlider(45, 255, 45);
+  slider1.position(10, 30);
+  slider1.style('width', '80px');
+  slider2 = createSlider(12, 255, 12);
+  slider2.position(10, 50);
+  slider2.style('width', '80px');
+  // slider3 = createSlider(12, 255, 12);
+  // slider3.position(10, 70);
+  // slider3.style('width', '80px');
+
 }
 
 function draw() {
@@ -63,20 +81,25 @@ function draw() {
 
 function mouseMoved() {
   push();
+  let val = slider.value();
+
+  let val1 = slider1.value();
+  let val2 = slider2.value();
+  // let val3 = slider3.value();
   // background(255,10);
   let locX = mouseX - width / 2;
   let locY = mouseY - height / 2;
   let locRot = frameCount*0.1;
 
   noStroke();
-  specularMaterial(250, 250, 250, 50);
+  specularMaterial(250, 250, 250, val);
   translate(locX, locY, -1000);
   rotateX(locRot);
   rotateY(locRot);
   rotateZ(locRot);
   // ambientMaterial(250);
   // fill(255);
-  ellipsoid(150, 40, 40);
+  ellipsoid(val1, val2, 12);
 
   pop();
   let message = {
