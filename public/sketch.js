@@ -57,30 +57,30 @@ function setup() {
   cnv.position(xCnv, yCnv);
   background(255);
 
-  slider = createSlider(50, 150, 50);
+  slider = createSlider(50, 150, 100);
   slider.position(10, 10);
   slider.style('width', '80px');
   // slider.parent("sliders");
 
-  slider1 = createSlider(45, 255, 45);
+  slider1 = createSlider(45, 255, 150);
   slider1.position(10, 50);
   slider1.style('width', '80px');
   // slider1.parent("sliders");
-  slider2 = createSlider(12, 255, 12);
+  slider2 = createSlider(15, 255, 135);
   slider2.position(10, 70);
   slider2.style('width', '80px');
   // slider2.parent("sliders");
 
 
-  slider3 = createSlider(10, 250, 200);
+  slider3 = createSlider(10, 250, 130);
   slider3.position(10, 110);
   slider3.style('width', '80px');
   // slider3.parent("sliders");
-  slider4 = createSlider(10, 255, 50);
+  slider4 = createSlider(10, 250, 130);
   slider4.position(10, 130);
   slider4.style('width', '80px');
   // slider4.parent("sliders");
-  slider5 = createSlider(10, 255, 0);
+  slider5 = createSlider(10, 250, 130);
   slider5.position(10, 150);
   slider5.style('width', '80px');
   // slider5.parent("sliders");
